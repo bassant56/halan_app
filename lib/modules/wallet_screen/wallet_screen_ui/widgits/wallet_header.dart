@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WalletHeader extends StatelessWidget {
@@ -9,11 +8,11 @@ class WalletHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 130.h,
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      height: 130,
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
         children: [
@@ -22,18 +21,18 @@ class WalletHeader extends StatelessWidget {
               color: Colors.amber,
               shape: BoxShape.circle,
             ),
-            width: 56.w,
-            height: 56.h,
+            width: 56,
+            height: 56,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               child: SvgPicture.asset(
                 'assets/Wallet_LO.svg',
-                width: 32.w,
-                height: 32.h,
+                width: 32,
+                height: 32,
               ),
             ),
           ),
-          SizedBox(width: 16.w),
+          SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -56,7 +55,7 @@ class WalletHeader extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -68,17 +67,17 @@ class WalletHeader extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 2.w),
+                    SizedBox(width: 2),
                     Container(
-                      width: 16.w,
-                      height: 16.h,
+                      width: 16,
+                      height: 16,
                       child: SvgPicture.asset(
                         'assets/Combined Shape.svg',
-                        width: 11.w,
-                        height: 12.h,
+                        width: 11,
+                        height: 12,
                       ),
                     ),
-                    VerticalDivider(color: Color(0xffB9BABA), width: 16.w),
+                    VerticalDivider(color: Color(0xffB9BABA), width: 16),
                     Text(
                       '43 عميل',
                       style: TextStyle(

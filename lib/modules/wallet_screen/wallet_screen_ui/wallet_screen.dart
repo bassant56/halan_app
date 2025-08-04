@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:halan_app/modules/wallet_screen/wallet_screen_ui/widgits/wallet_header.dart';
 
 class WalletScreen extends StatefulWidget {
@@ -32,11 +31,11 @@ class _WalletScreenState extends State<WalletScreen> {
               onPressed: () {},
             ),
             Positioned(
-              right: 5.w,
-              top: 1.h,
+              right: 5,
+              top: 1,
               child: Container(
-                width: 14.w,
-                height: 16.h,
+                width: 14,
+                height: 16,
                 decoration: BoxDecoration(
                   color: Colors.green,
                   shape: BoxShape.circle,
@@ -57,7 +56,7 @@ class _WalletScreenState extends State<WalletScreen> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(children: [WalletHeader()]),
       ),
     );
