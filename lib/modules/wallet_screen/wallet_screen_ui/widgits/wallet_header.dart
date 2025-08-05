@@ -8,7 +8,6 @@ class WalletHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 130,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -42,7 +41,7 @@ class WalletHeader extends StatelessWidget {
                   'اجمالي المحفظة',
                   style: TextStyle(
                     color: Color(0xff5E6160),
-                    fontSize: 10,
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -50,7 +49,7 @@ class WalletHeader extends StatelessWidget {
                 Text(
                   '80,000,712 جنيه',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 32,
                     fontWeight: FontWeight.w700,
                     color: Colors.black,
                   ),
@@ -62,7 +61,7 @@ class WalletHeader extends StatelessWidget {
                     Text(
                       ' 43% نمو',
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 16,
                         color: Color(0xff00A970),
                         fontWeight: FontWeight.w600,
                       ),
@@ -81,7 +80,7 @@ class WalletHeader extends StatelessWidget {
                     Text(
                       '43 عميل',
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 16,
                         color: Color(0xff5E6160),
                         fontWeight: FontWeight.w600,
                       ),
