@@ -17,7 +17,7 @@ class WalletHeader extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.amber,
+              color: Color(0xffF9FAFC),
               shape: BoxShape.circle,
             ),
             width: 56,
@@ -76,7 +76,14 @@ class WalletHeader extends StatelessWidget {
                         height: 12,
                       ),
                     ),
-                    VerticalDivider(color: Color(0xffB9BABA), width: 16),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                      child: Container(
+                        color: Color(0xffB9BABA),
+                        width: 1,
+                        height: 16,
+                      ),
+                    ),
                     Text(
                       '43 عميل',
                       style: TextStyle(
