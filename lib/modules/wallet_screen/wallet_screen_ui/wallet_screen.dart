@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:halan_app/modules/wallet_screen/wallet_screen_ui/widgits/products_grid.dart';
 import 'package:halan_app/modules/wallet_screen/wallet_screen_ui/widgits/wallet_header.dart';
 
 class WalletScreen extends StatefulWidget {
@@ -42,7 +43,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 ),
                 child: const Center(
                   child: Text(
-                    '1',
+                    '0.6',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 10,
@@ -57,7 +58,26 @@ class _WalletScreenState extends State<WalletScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        child: Column(children: [WalletHeader()]),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              WalletHeader(),
+              SizedBox(height: 32),
+              Text(
+                textAlign: TextAlign.right,
+                'المنتجات',
+                style: TextStyle(
+                  color: Color(0xff1C211F),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(height: 16),
+              ProductsGrid(),
+            ],
+          ),
+        ),
       ),
     );
   }

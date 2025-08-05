@@ -64,6 +64,22 @@ flutter:
   assets:
      - assets/Wallet_LO.svg
      - assets/Combined Shape.svg
+     - assets/assets_product/Combined Shape BG.svg
+     - assets/assets_product/Combined Shape BR.svg
+     - assets/assets_product/Combined Shape UG.svg
+     - assets/assets_product/Combined Shape UR.svg
+     - assets/assets_product/ill_spot_comm_services_LO.svg
+     - assets/assets_product/ill_spot_pay_card_LO (1).svg
+     - assets/assets_product/ill_spot_pay_card_LO.svg
+     - assets/assets_product/ill_spot_pay_cf_LO.svg
+     - assets/assets_product/ill_spot_pay_gam3eya_LO.svg
+     - assets/assets_product/ill_spot_pay_gold_LO.svg
+     - assets/assets_product/ill_spot_pay_invest_LO.svg
+     - assets/assets_product/ill_spot_pay_MF_LO.svg 
+     - assets/assets_product/ill_spot_pay_SME_LO.svg
+     - assets/assets_product/nokia.svg
+
+
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
