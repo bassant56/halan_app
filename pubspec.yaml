@@ -62,8 +62,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/Wallet_LO.svg
-     - assets/Combined Shape.svg
+    - assets/
+    - assets/assets_product/
+    - assets/assets_product/ill_spot_comm_services_LO.svg
+    - assets/assets_product/ill_spot_pay_gold_LO.svg
+
+
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
