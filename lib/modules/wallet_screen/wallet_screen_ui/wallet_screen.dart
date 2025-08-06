@@ -43,7 +43,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 ),
                 child: const Center(
                   child: Text(
-                    '0.6',
+                    '1',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 10,
