@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:halan_app/models/wallet_screen_model.dart';
 
-class WalletHeader extends StatelessWidget {
-  const WalletHeader({super.key});
+class WalletHeaderFromApi extends StatelessWidget {
+  final Wallet wallet;
+
+  const WalletHeaderFromApi({super.key, required this.wallet});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
@@ -16,28 +19,24 @@ class WalletHeader extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xffF9FAFC),
               shape: BoxShape.circle,
             ),
             width: 56,
             height: 56,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-              child: SvgPicture.asset(
-                'assets/Wallet_LO.svg',
-                width: 32,
-                height: 32,
-              ),
+              padding: const EdgeInsets.all(12),
+              child: SvgPicture.asset(wallet.logo),
             ),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   'اجمالي المحفظة',
                   style: TextStyle(
                     color: Color(0xff5E6160),
@@ -45,48 +44,38 @@ class WalletHeader extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-
                 Text(
-                  '80,000,712 جنيه',
-                  style: TextStyle(
+                  '${wallet.walletTotal} ${wallet.walletUnit}',
+                  style: const TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w700,
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      ' 43% نمو',
-                      style: TextStyle(
+                      '${wallet.growthRate}% نمو',
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Color(0xff00A970),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(width: 2),
-                    Container(
-                      width: 16,
-                      height: 16,
-                      child: SvgPicture.asset(
-                        'assets/Combined Shape.svg',
-                        width: 11,
-                        height: 12,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-                      child: Container(
+                    const SizedBox(width: 8),
+                    const Icon(Icons.trending_up, color: Colors.green),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: VerticalDivider(
+                        thickness: 1,
                         color: Color(0xffB9BABA),
-                        width: 1,
-                        height: 16,
                       ),
                     ),
                     Text(
-                      '43 عميل',
-                      style: TextStyle(
+                      '${wallet.customers} عميل',
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Color(0xff5E6160),
                         fontWeight: FontWeight.w600,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:halan_app/modules/wallet_screen/wallet_screen_ui/widgits/products_grid.dart';
-import 'package:halan_app/modules/wallet_screen/wallet_screen_ui/widgits/wallet_header.dart';
+import 'package:halan_app/models/wallet_screen_model.dart';
+import 'package:halan_app/modules/products_grid_from_api.dart';
+import 'package:halan_app/modules/wallet_header_from_api.dart';
+import 'package:halan_app/service/wallet_screen_service.dart';
 
 class WalletScreen extends StatefulWidget {
   const WalletScreen({super.key});
@@ -10,6 +12,20 @@ class WalletScreen extends StatefulWidget {
 }
 
 class _WalletScreenState extends State<WalletScreen> {
+  late Future<WalletScreenModel> _walletData;
+
+  @override
+  void initState() {
+    super.initState();
+    _walletData = _fetchWalletData();
+  }
+
+  Future<WalletScreenModel> _fetchWalletData() async {
+    final service = UserService();
+    final response = await service.getWalletScreen();
+    return response;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,26 +73,42 @@ class _WalletScreenState extends State<WalletScreen> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              WalletHeader(),
-              SizedBox(height: 32),
-              Text(
-                textAlign: TextAlign.right,
-                'المنتجات',
-                style: TextStyle(
-                  color: Color(0xff1C211F),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: FutureBuilder<WalletScreenModel>(
+          future: _walletData,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text("خطأ في تحميل البيانات"));
+            } else if (!snapshot.hasData) {
+              return Center(child: Text("لا توجد بيانات"));
+            }
+
+            final wallet = snapshot.data!.data.wallet;
+            final products = snapshot.data!.data.product;
+
+            return SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  WalletHeaderFromApi(wallet: wallet),
+                  const SizedBox(height: 32),
+                  const Text(
+                    textAlign: TextAlign.right,
+                    'المنتجات',
+                    style: TextStyle(
+                      color: Color(0xff1C211F),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ProductsGridFromApi(products: products),
+                ],
               ),
-              SizedBox(height: 16),
-              ProductsGrid(),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
