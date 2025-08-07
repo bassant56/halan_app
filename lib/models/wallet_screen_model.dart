@@ -55,13 +55,13 @@ class Data {
 }
 
 class Product {
-  String logo;
-  String name;
-  int value;
-  String title;
-  String growthType;
-  String walletUnit;
-  int growth;
+  String? logo;
+  String? name;
+  num? value;
+  String? title;
+  String? growthType;
+  String? walletUnit;
+  num? growth;
 
   Product({
     required this.logo,
@@ -74,13 +74,13 @@ class Product {
   });
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-    logo: json["logo"],
-    name: json["name"],
-    value: json["value"],
-    title: json["title"],
-    growthType: json["growthType"],
-    walletUnit: json["walletUnit"],
-    growth: json["growth"],
+    logo: json["logo"] ?? "",
+    name: json["name"] ?? "",
+    value: json["value"] ?? 0,
+    title: json["title"] ?? "",
+    growthType: json["growthType"] ?? "",
+    walletUnit: json["walletUnit"] ?? "",
+    growth: json["growth"] ?? 0,
   );
 
   Map<String, dynamic> toJson() => {
@@ -97,11 +97,13 @@ class Product {
 class Wallet {
   String title;
   String logo;
+
   //int lastUpdate;
   int walletTotal;
   int growthRate;
   int customers;
   String walletUnit;
+
   // int cashingDuration;
 
   Wallet({

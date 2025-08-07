@@ -6,48 +6,24 @@ class DataCard extends StatelessWidget {
   final String amount;
   final String icon1;
   final String icon2;
-  final String iconColor;
-  late Color backgroundColor;
   final String avg;
-  final String avgColor;
-  late Color backgroundColorAvg;
+  final Color backgroundColor;
+  final Color avgColor;
 
   DataCard({
     required this.label,
     required this.amount,
     required this.icon1,
     required this.icon2,
-    required this.iconColor,
-    super.key,
     required this.avg,
     required this.avgColor,
+    super.key,
+    required this.backgroundColor,
   });
-
-  void getColor() {
-    if (iconColor == 'red_icon') {
-      backgroundColor = Color(0xffFEF7F8);
-    } else if (iconColor == 'green_icon') {
-      backgroundColor = Color(0xffF5FCF9);
-    } else {
-      backgroundColor = Color(0xffF9FAFC);
-    }
-  }
-
-  void getColorAvg() {
-    if (avgColor == 'red_avg') {
-      backgroundColorAvg = Colors.red;
-    } else if (avgColor == 'green_avg') {
-      backgroundColorAvg = Colors.green;
-    } else {
-      backgroundColorAvg = Color(0x005e6160);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    getColor();
-    getColorAvg();
-    //print(icon2);
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
@@ -76,7 +52,7 @@ class DataCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
-                        color: backgroundColorAvg,
+                        color: avgColor,
                       ),
                     ),
                     Padding(

@@ -19,18 +19,58 @@ class ProductsGridFromApi extends StatelessWidget {
       children:
           products.map((product) {
             return DataCard(
-              label: product.title,
+              label: product.title ?? "",
               amount: '${product.value} ${product.walletUnit}',
-              icon1: product.logo,
-              icon2:
-                  product.growthType.contains('up')
-                      ? 'assets/assets_product/ic_outlined_arrowupright_green.svg'
-                      : 'assets/assets_product/ic_outlined_arrowdownleft_red.svg',
-              iconColor: product.growthType == 'up' ? 'green_icon' : 'red_icon',
-              avg: '${product.growth}%',
-              avgColor: product.growthType == 'up' ? 'green_avg' : 'red_avg',
+              icon1: product.logo ?? "",
+              icon2: getArrow(product.growthType),
+              avg: '${product.growth ?? 0}%',
+              backgroundColor: getColor(product.growthType),
+              avgColor:
+                  product.growthType!.contains("green")
+                      ? Colors.green
+                      : (product.growthType!.contains("red")
+                          ? Colors.red
+                          : Colors.grey),
             );
           }).toList(),
     );
   }
+
+  String getArrow(String? growthType) {
+    switch (growthType) {
+      case "greenUp":
+        return 'assets/assets_product/ic_outlined_arrowupright_green.svg';
+      case "greenDown":
+        return 'assets/assets_product/ic_outlined_arrowdownleft_green.svg';
+      case "redUp":
+        return 'assets/assets_product/ic_outlined_arrowupright_red.svg';
+      case "redDown":
+        return 'assets/assets_product/ic_outlined_arrowdownleft_red.svg';
+      default:
+        return "";
+    }
+  }
+
+  Color getColor(String? growthType) {
+    switch (growthType) {
+      case "greenUp":
+      case "greenDown":
+        return Color(0xffF5FCF9);
+
+      case "redUp":
+      case "redDown":
+        return Color(0xffFEF7F8);
+      default:
+        return Colors.white54;
+    }
+  }
 }
+
+/*
+greenUp
+greenDown
+redDown
+redUp
+normal
+
+ */
